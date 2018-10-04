@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_my_trips"
+            android:icon="@drawable/icons8_my_trips_96"
+            android:title="My Trips" />
+        <item
+            android:id="@+id/nav_call_us"
+            android:icon="@drawable/icons8_call_us_96"
+            android:title="Call Us" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/icons8_maintenance_96"
+            android:title="Settings" />
+
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/icons8_about_96"
+            android:title="About" />
+
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/icons8_shutdown_96"
+                android:title="logout" />
+        </menu>
+    </item>
+
+</menu>

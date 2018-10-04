@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Green theme. -->
+    <style name="Theme.GreenTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- red theme. -->
+    <style name="Theme.RedTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/primary_darker</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- yellow theme. -->
+    <style name="Theme.YelloTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/yello</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+</resources>
