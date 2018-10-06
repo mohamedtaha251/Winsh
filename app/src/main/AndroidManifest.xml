@@ -58,7 +58,10 @@
             android:name=".view.activity.Login.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".view.activity.signUp.SignUpActivity" />
-        <activity android:name=".view.activity.MyTrips.MyTripsActivity" />
+        <activity
+            android:name=".view.activity.MyTrips.MyTripsActivity"
+            android:label="My Trips"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".view.activity.CallUs.CallUsActivity" />
         <activity android:name=".view.activity.About.AboutActivity" />
         <activity
