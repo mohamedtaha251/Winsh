@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:numStars="5"
                 android:progressBackgroundTint="@color/aluminum"
-                android:progressTint="@color/colorPrimary" />
+                android:progressTint="?attr/colorPrimary" />
 
         </LinearLayout>
 

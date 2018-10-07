@@ -39,4 +39,10 @@
         <item name="android:background">@color/colorPrimary</item>
     </style>
 
+    <style name="GreenTheme">
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
 </resources>

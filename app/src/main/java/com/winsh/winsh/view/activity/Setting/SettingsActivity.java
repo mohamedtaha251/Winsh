@@ -3,6 +3,7 @@ package com.winsh.winsh.view.activity.Setting;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -37,6 +38,7 @@ import java.util.List;
  */
 public class SettingsActivity extends PreferenceActivity {
 
+    static SettingsActivity settingsActivity;
     /**
      * A preference value change listener that updates the preference's summary
      * to reflect its new value.
@@ -46,6 +48,8 @@ public class SettingsActivity extends PreferenceActivity {
         public boolean onPreferenceChange(Preference preference, Object value) {
             String stringValue = value.toString();
 
+
+            //change theme
             if (preference instanceof ListPreference) {
                 // For list preferences, look up the correct display value in
                 // the preference's 'entries' list.
@@ -85,6 +89,14 @@ public class SettingsActivity extends PreferenceActivity {
                 // simple string representation.
                 preference.setSummary(stringValue);
             }
+
+            //restar app if color changed
+            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(preference.getContext());
+            String oldValue = prefs.getString(preference.getKey(), "0");
+            if (!stringValue.equals(oldValue)) {
+                ViewUtils.restartApp(preference.getContext());
+            }
+
             return true;
         }
     };
@@ -123,6 +135,7 @@ public class SettingsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupActionBar();
+        settingsActivity = this;
     }
 
     /**

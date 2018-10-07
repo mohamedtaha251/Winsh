@@ -19,7 +19,7 @@
 
     <header
         android:fragment="com.winsh.winsh.view.activity.Setting.SettingsActivity$DisplayPreferenceFragment"
-        android:icon="@drawable/icons8_change_theme_96"
+        android:icon="@drawable/ic_menu_gallery"
         android:title="@string/pref_header_display" />
 
 </preference-headers>

@@ -7,169 +7,173 @@
     tools:context=".view.activity.Request.RequestActivity"
     tools:layout_editor_absoluteY="25dp">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="8dp"
-        android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:orientation="vertical">
 
-        <LinearLayout
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:orientation="vertical">
+            android:layout_height="wrap_content" />
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
 
-            <!--Image-->
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image22"
-                android:layout_width="200dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                android:src="@drawable/winch_img"
-                app:civ_border_color="@color/colorAccent"
-                app:civ_border_width="3dp" />
-
-
-            <!--cost -->
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:background="@color/white"
                 android:orientation="vertical">
 
-                <TextView
+
+                <!--Image-->
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profile_image22"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/winch_img"
+                    app:civ_border_color="@color/colorAccent"
+                    app:civ_border_width="3dp" />
+
+
+                <!--cost -->
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Winch"
-                    android:textSize="25dp" />
+                    android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="EGP 22-29"
-                    android:textSize="25dp" />
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="Winch"
+                        android:textSize="25dp" />
 
-            <!--call -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/fab_margin"
-                android:elevation="@dimen/fab_margin"
-                android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="EGP 22-29"
+                        android:textSize="25dp" />
+                </LinearLayout>
 
-
-                <ImageButton
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@color/green"
-                    android:elevation="@dimen/fab_margin"
-                    android:src="@android:drawable/ic_menu_call" />
-
-            </LinearLayout>
-
-            <!--more detailes-->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="Capacity" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="4 people" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="Per minute Waiting Time" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="3dp"
-                    android:gravity="right"
-                    android:text="EGY 0.3" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.5"
-                    android:text="Esitmated Arrival" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:layout_marginRight="3dp"
-                    android:gravity="right"
-                    android:text="7:41 pm" />
-            </LinearLayout>
-
-            <!--Request Button-->
-
-            <FrameLayout
-
-                android:id="@+id/small_map_cointener"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="5dp">
-
-
-                <fragment
-                    android:id="@+id/fragment_small"
-                    android:name="com.winsh.winsh.view.fragment.SmallMapFragment.SmallMapFragment"
+                <!--call -->
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </FrameLayout>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom"
-                android:layout_marginTop="5dp"
-                android:background="@color/black"
-                android:text="Request Winch"
-                android:textColor="@color/white"
-                android:textSize="@dimen/fab_margin" />
-
-        </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/fab_margin"
+                    android:elevation="@dimen/fab_margin"
+                    android:orientation="horizontal">
 
 
-    </ScrollView>
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@color/green"
+                        android:elevation="@dimen/fab_margin"
+                        android:src="@android:drawable/ic_menu_call" />
+
+                </LinearLayout>
+
+                <!--more detailes-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="Capacity" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="4 people" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="Per minute Waiting Time" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="3dp"
+                        android:gravity="right"
+                        android:text="EGY 0.3" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.5"
+                        android:text="Esitmated Arrival" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginRight="3dp"
+                        android:gravity="right"
+                        android:text="7:41 pm" />
+                </LinearLayout>
+
+                <!--Request Button-->
+
+                <FrameLayout
+
+                    android:id="@+id/small_map_cointener"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="5dp">
+
+
+                    <fragment
+                        android:id="@+id/fragment_small"
+                        android:name="com.winsh.winsh.view.fragment.SmallMapFragment.SmallMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+                </FrameLayout>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/black"
+                    android:text="Request Winch"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/fab_margin" />
+
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+    </LinearLayout>
 
 
 </android.support.constraint.ConstraintLayout>

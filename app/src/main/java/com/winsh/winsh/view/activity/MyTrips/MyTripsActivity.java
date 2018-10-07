@@ -11,6 +11,7 @@ import android.view.MenuItem;
 
 import com.winsh.winsh.R;
 import com.winsh.winsh.adapter.MyTripsViewPagerAdapter;
+import com.winsh.winsh.utils.ViewUtils;
 import com.winsh.winsh.view.activity.Base.BaseActivity;
 
 public class MyTripsActivity extends BaseActivity {
@@ -24,14 +25,8 @@ public class MyTripsActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_trips);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        // add back arrow to toolbar
-        if (getSupportActionBar() != null){
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
+        //set tool bar
+        ViewUtils.setToolBar(this);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Past"));

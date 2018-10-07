@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ونش</string>
+    <string name="app_name">Winsh</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
@@ -103,15 +103,17 @@
     <string name="pref_header_display">Display</string>
     <string-array name="pref_theme_list_titles">
         <item>Default</item>
-        <item>AppTheme</item>
-        <item>No Title Bar</item>
-        <item>Holo</item>
+        <item>Red</item>
+        <item>yello</item>
+        <item>Black</item>
+        <item>green</item>
     </string-array>
     <string-array name="pref_theme_list_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
     <string name="pref_title_Theme">Choose Theme</string>
 
