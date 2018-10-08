@@ -52,7 +52,7 @@ public class ViewUtils {
 
     }
 
-    public static void setToolBar(AppCompatActivity context) {
+    public static Toolbar setToolBar(AppCompatActivity context) {
         //set action bar
         Toolbar toolbar = (Toolbar) context.findViewById(R.id.toolbar);
         context.setSupportActionBar(toolbar);
@@ -73,5 +73,9 @@ public class ViewUtils {
         //add icon
         //context.getSupportActionBar().setLogo(R.drawable.logo);
 
+        //add menu
+
+
+        return toolbar;
     }
 }

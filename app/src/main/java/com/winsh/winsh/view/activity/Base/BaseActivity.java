@@ -1,15 +1,18 @@
 package com.winsh.winsh.view.activity.Base;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.winsh.winsh.R;
 import com.winsh.winsh.utils.ViewUtils;
+import com.winsh.winsh.view.activity.Setting.SettingsActivity;
 
 public abstract class BaseActivity extends AppCompatActivity {
     @Override
@@ -20,7 +23,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
         //prevent keyboard from opening in start of activity
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-
 
 
         //change colors
@@ -38,10 +40,27 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // handle arrow click here
-        if (item.getItemId() == android.R.id.home) {
+
+        int id = item.getItemId();
+
+
+        if (id == android.R.id.home) {
             finish();
         }
 
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 }
