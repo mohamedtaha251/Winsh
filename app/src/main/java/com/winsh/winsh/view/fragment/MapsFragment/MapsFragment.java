@@ -1,9 +1,11 @@
 package com.winsh.winsh.view.fragment.MapsFragment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
+import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -18,7 +20,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -27,15 +32,18 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.winsh.winsh.R;
 import com.winsh.winsh.sync.connectAsyncTask;
 import com.winsh.winsh.utils.LocationUtils;
 import com.winsh.winsh.utils.PathDrawer;
 import com.winsh.winsh.view.activity.Request.RequestActivity;
 
+import static android.content.Context.LOCATION_SERVICE;
+
 public class MapsFragment extends Fragment {
     MapView mMapView;
-    private GoogleMap mMap;
+    GoogleMap mMap;
     LocationListener mLocationListener;
     LocationManager mLocationManager;
     FloatingActionButton BtnSearch;
@@ -46,7 +54,10 @@ public class MapsFragment extends Fragment {
     ImageView pinButton;
     LatLng currentLatLng;
     Button BtnConfirmPickUp;
+    private FusedLocationProviderClient mFusedLocationClient;
 
+
+    @SuppressLint("MissingPermission")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.location_fragment, container, false);
@@ -56,9 +67,29 @@ public class MapsFragment extends Fragment {
         initMapView(savedInstanceState);
         actions(rootView);
 
-        LocationUtils.checkPermission(getActivity());
-        LocationUtils.enableGPS(getActivity());
-        LocationUtils.getCurrentLocation(getActivity(), mLocationListener, mLocationManager);
+        mLocationManager = (LocationManager) getContext().getSystemService(LOCATION_SERVICE);
+        mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0,
+                0, mLocationListener);
+
+        //LocationUtils.checkPermission(getActivity());
+        //LocationUtils.enableGPS(getActivity());
+        //LocationUtils.getCurrentLocation(getActivity(), mLocationListener, mLocationManager);
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(getActivity());
+        mFusedLocationClient.getLastLocation()
+                .addOnSuccessListener(new OnSuccessListener<Location>() {
+                    @Override
+                    public void onSuccess(Location location) {
+
+                        if (location != null) {
+
+                            currentLatLng = new LatLng(location.getLatitude(), location.getLongitude());
+                            // For zooming automatically to the location of the marker
+                            CameraPosition cameraPosition = new CameraPosition.Builder().target(currentLatLng).zoom(12).build();
+                            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                        }
+                    }
+                });
 
         return rootView;
     }
@@ -120,9 +151,9 @@ public class MapsFragment extends Fragment {
         mMapView.getMapAsync(new OnMapReadyCallback() {
             @SuppressLint("MissingPermission")
             @Override
-            public void onMapReady(GoogleMap mMap) {
-                MapsFragment.this.mMap = mMap;
-                MapsFragment.this.mMap.setMyLocationEnabled(true);
+            public void onMapReady(GoogleMap googleMap) {
+                mMap = googleMap;
+                mMap.setMyLocationEnabled(true);
 
 
             }
