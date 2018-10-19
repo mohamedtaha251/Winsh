@@ -1,11 +1,9 @@
 package com.winsh.winsh.view.fragment.MapsFragment;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
-import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -20,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -34,8 +31,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.winsh.winsh.R;
-import com.winsh.winsh.sync.connectAsyncTask;
-import com.winsh.winsh.utils.LocationUtils;
+import com.winsh.winsh.sync.AsyncTask.connectAsyncTask;
 import com.winsh.winsh.utils.PathDrawer;
 import com.winsh.winsh.view.activity.Request.RequestActivity;
 

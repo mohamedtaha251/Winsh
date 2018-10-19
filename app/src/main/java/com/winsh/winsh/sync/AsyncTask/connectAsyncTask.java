@@ -1,4 +1,4 @@
-package com.winsh.winsh.sync;
+package com.winsh.winsh.sync.AsyncTask;
 
 import android.app.ProgressDialog;
 import android.content.Context;
